@@ -38,7 +38,7 @@ public class AdminBar extends JavaPlugin {
         ScoreboardManager sbm = Bukkit.getServer().getScoreboardManager();
         sb = sbm.getNewScoreboard();
         adminbar = sb.registerNewObjective("adminBar", "dummy");
-        adminbar.setDisplayName(ChatColor.GREEN + "Admin Bar");
+        adminbar.setDisplayName(ChatColor.YELLOW + "Admin Bar");
         adminbar.setDisplaySlot(DisplaySlot.SIDEBAR);
         task = new UpdateScoreboard().runTaskTimer(this, 0, 20); // Update scoreboard every second
         this.getServer().getPluginManager().registerEvents(new AdminListener(), this);
