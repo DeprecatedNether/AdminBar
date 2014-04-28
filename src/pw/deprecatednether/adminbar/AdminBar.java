@@ -50,9 +50,7 @@ public class AdminBar extends JavaPlugin {
     }
 
     public void onDisable() {
-        if (sb.getObjectives().size() > 0) {
-            sb.getObjectives().clear();
-        }
+
     }
 
     /**
