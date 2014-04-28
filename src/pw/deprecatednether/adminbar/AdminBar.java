@@ -18,6 +18,7 @@
 
 package pw.deprecatednether.adminbar;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class AdminBar extends JavaPlugin {
@@ -27,5 +28,21 @@ public class AdminBar extends JavaPlugin {
 
     public void onDisable() {
 
+    }
+
+    /**
+     * Get the current TPS.
+     * @return The ticks per second rate, rounded to two decimals.
+     */
+    public static double getTPS() { // TODO
+        return -1;
+    }
+
+    /**
+     * Get online players
+     * @return The number of online players.
+     */
+    public static int getOnline() {
+        return Bukkit.getServer().getOnlinePlayers().length;
     }
 }
