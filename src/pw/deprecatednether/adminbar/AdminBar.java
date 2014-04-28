@@ -19,6 +19,7 @@
 package pw.deprecatednether.adminbar;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.DisplaySlot;
@@ -36,7 +37,7 @@ public class AdminBar extends JavaPlugin {
         ScoreboardManager sbm = Bukkit.getServer().getScoreboardManager();
         sb = sbm.getNewScoreboard();
         adminbar = sb.registerNewObjective("adminBar", "dummy");
-        adminbar.setDisplayName("Admin Bar");
+        adminbar.setDisplayName(ChatColor.GREEN + "Admin Bar");
         adminbar.setDisplaySlot(DisplaySlot.SIDEBAR);
         task = new UpdateScoreboard().runTaskTimer(this, 0, 20); // Update scoreboard every second
         this.getServer().getPluginManager().registerEvents(new AdminListener(), this);

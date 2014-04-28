@@ -19,6 +19,7 @@
 package pw.deprecatednether.adminbar;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
@@ -31,8 +32,8 @@ public class UpdateScoreboard extends BukkitRunnable {
     @Override
     public void run() {
         Objective adminbar = AdminBar.adminbar;
-        Score tps = adminbar.getScore(Bukkit.getServer().getOfflinePlayer("Server TPS"));
-        Score players = adminbar.getScore(Bukkit.getServer().getOfflinePlayer("Online Players"));
+        Score tps = adminbar.getScore(Bukkit.getServer().getOfflinePlayer(ChatColor.GREEN + "Server TPS"));
+        Score players = adminbar.getScore(Bukkit.getServer().getOfflinePlayer(ChatColor.GREEN + "Online Players"));
         if (lastrun != -1) {
             tps.setScore(AdminBar.getTPS(lastrun));
         }
