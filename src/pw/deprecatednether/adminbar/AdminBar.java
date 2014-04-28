@@ -38,7 +38,7 @@ public class AdminBar extends JavaPlugin {
         adminbar = sb.registerNewObjective("adminBar", "dummy");
         adminbar.setDisplayName("Admin Bar");
         adminbar.setDisplaySlot(DisplaySlot.SIDEBAR);
-        task = new UpdateScoreboard().runTaskTimer(this, 0, 100); // Update scoreboard every 5 seconds (5*20)
+        task = new UpdateScoreboard().runTaskTimer(this, 0, 20); // Update scoreboard every second
         this.getServer().getPluginManager().registerEvents(new AdminListener(), this);
     }
 
@@ -53,7 +53,8 @@ public class AdminBar extends JavaPlugin {
      */
     public static int getTPS(long ago) {
         long now = System.currentTimeMillis();
-        double tps = (100000/(now - ago)); // 100 ticks in 5 seconds. We're dealing with milliseconds so multiply both by 1000. 100000 ticks and 5000 ms. Divide the ticks by the ms to get ticks per second
+        double tps = (20000/(now - ago)); // 20 ticks in 1 second. We're dealing with milliseconds so multiply both by 1000. 20000 ticks and 1000 ms. Divide the ticks by the ms to get ticks per second
+        System.out.println(tps);
         return (int)Math.round(tps);
     }
 
