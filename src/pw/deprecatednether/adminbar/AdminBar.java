@@ -20,21 +20,25 @@ package pw.deprecatednether.adminbar;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
+import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
 public class AdminBar extends JavaPlugin {
 
+    public static Objective adminbar;
     public static Scoreboard sb;
+    BukkitTask task;
 
     public void onEnable() {
         ScoreboardManager sbm = Bukkit.getServer().getScoreboardManager();
         sb = sbm.getNewScoreboard();
-        Objective tps = sb.registerNewObjective("tps", "dummy");
-        Objective players = sb.registerNewObjective("players", "dummy");
-        tps.setDisplayName("Server TPS");
-        players.setDisplayName("Online players");
+        adminbar = sb.registerNewObjective("adminBar", "dummy");
+        adminbar.setDisplayName("Admin Bar");
+        adminbar.setDisplaySlot(DisplaySlot.SIDEBAR);
+        task = new UpdateScoreboard().runTaskTimer(this, 0, 100); // Update scoreboard every 5 seconds (5*20)
         this.getServer().getPluginManager().registerEvents(new AdminListener(), this);
     }
 
