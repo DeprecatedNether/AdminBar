@@ -72,4 +72,14 @@ public class AdminBar extends JavaPlugin {
     public static int getOnline() {
         return Bukkit.getServer().getOnlinePlayers().length;
     }
+
+    public static int getOnlineStaff() {
+        int staff = 0;
+        for (Player pl : Bukkit.getServer().getOnlinePlayers()) {
+            if (pl.hasPermission("adminbar.staff")) {
+                staff++;
+            }
+        }
+        return staff;
+    }
 }
