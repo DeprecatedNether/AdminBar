@@ -20,10 +20,22 @@ package pw.deprecatednether.adminbar;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
 
 public class AdminBar extends JavaPlugin {
-    public void onEnable() {
 
+    public static Scoreboard sb;
+
+    public void onEnable() {
+        ScoreboardManager sbm = Bukkit.getServer().getScoreboardManager();
+        sb = sbm.getNewScoreboard();
+        Objective tps = sb.registerNewObjective("tps", "dummy");
+        Objective players = sb.registerNewObjective("players", "dummy");
+        tps.setDisplayName("Server TPS");
+        players.setDisplayName("Online players");
+        this.getServer().getPluginManager().registerEvents(new AdminListener(), this);
     }
 
     public void onDisable() {
