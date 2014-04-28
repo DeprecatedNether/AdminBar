@@ -48,10 +48,13 @@ public class AdminBar extends JavaPlugin {
 
     /**
      * Get the current TPS.
-     * @return The ticks per second rate, rounded to two decimals.
+     * @param ago When was this script last called? Should be 100 ticks! (~5 seconds)
+     * @return The ticks per second rate, rounded to no decimals.
      */
-    public static double getTPS() { // TODO
-        return -1;
+    public static int getTPS(long ago) {
+        long now = System.currentTimeMillis();
+        double tps = (100000/(now - ago)); // 100 ticks in 5 seconds. We're dealing with milliseconds so multiply both by 1000. 100000 ticks and 5000 ms. Divide the ticks by the ms to get ticks per second
+        return (int)Math.round(tps);
     }
 
     /**

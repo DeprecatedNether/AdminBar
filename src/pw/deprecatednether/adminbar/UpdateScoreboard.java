@@ -25,12 +25,18 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 
 public class UpdateScoreboard extends BukkitRunnable {
+
+    long lastrun = -1;
+
     @Override
     public void run() {
         Objective adminbar = AdminBar.adminbar;
         Score tps = adminbar.getScore(Bukkit.getServer().getOfflinePlayer("Server TPS"));
         Score players = adminbar.getScore(Bukkit.getServer().getOfflinePlayer("Online Players"));
-        tps.setScore((int)Math.round(AdminBar.getTPS()));
+        if (lastrun != -1) {
+            tps.setScore((int)Math.round(AdminBar.getTPS(lastrun)));
+        }
+        lastrun = System.currentTimeMillis();
         players.setScore(AdminBar.getOnline());
     }
 }
