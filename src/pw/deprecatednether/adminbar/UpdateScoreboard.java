@@ -34,7 +34,7 @@ public class UpdateScoreboard extends BukkitRunnable {
         Score tps = adminbar.getScore(Bukkit.getServer().getOfflinePlayer("Server TPS"));
         Score players = adminbar.getScore(Bukkit.getServer().getOfflinePlayer("Online Players"));
         if (lastrun != -1) {
-            tps.setScore((int)Math.round(AdminBar.getTPS(lastrun)));
+            tps.setScore(AdminBar.getTPS(lastrun));
         }
         lastrun = System.currentTimeMillis();
         players.setScore(AdminBar.getOnline());
