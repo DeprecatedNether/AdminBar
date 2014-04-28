@@ -50,7 +50,11 @@ public class AdminBar extends JavaPlugin {
     }
 
     public void onDisable() {
-
+        for (Player pl : Bukkit.getOnlinePlayers()) {
+            if (pl.hasPermission("adminbar.view")) {
+                pl.setScoreboard(null);
+            }
+        }
     }
 
     /**
