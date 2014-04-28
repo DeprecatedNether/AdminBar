@@ -50,7 +50,7 @@ public class AdminBar extends JavaPlugin {
     }
 
     public void onDisable() {
-
+        task.cancel();
     }
 
     /**
