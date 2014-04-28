@@ -65,7 +65,6 @@ public class AdminBar extends JavaPlugin {
     public static int getTPS(long ago) {
         long now = System.currentTimeMillis();
         double tps = (20000/(now - ago)); // 20 ticks in 1 second. We're dealing with milliseconds so multiply both by 1000. 20000 ticks and 1000 ms. Divide the ticks by the ms to get ticks per second
-        System.out.println(tps);
         return (int)Math.round(tps);
     }
 
