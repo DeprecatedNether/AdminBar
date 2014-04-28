@@ -1,3 +1,10 @@
 name: AdminBar
 version: 0.1
 main: pw.deprecatednether.adminbar.AdminBar
+permissions:
+  adminbar.view:
+    description: Shows the AdminBar
+    default: op
+  adminbar.staff:
+    description: Counts the player as staff in the Staff Online
+    default: op
