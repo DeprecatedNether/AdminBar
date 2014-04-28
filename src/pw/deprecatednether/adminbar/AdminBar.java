@@ -83,6 +83,10 @@ public class AdminBar extends JavaPlugin {
         return staff;
     }
 
+    /**
+     * Gets the used RAM.
+     * @return Used RAM in mebibytes (bytes/(1024*1024)) - base 2.
+     */
     public static int getUsedRAM() {
         Runtime rt = Runtime.getRuntime();
         long max = rt.maxMemory();
@@ -92,6 +96,10 @@ public class AdminBar extends JavaPlugin {
         return mib;
     }
 
+    /**
+     * Gets the percentage of RAM used.
+     * @return The percentage of RAM used (will always be 0-100)
+     */
     public static int getRAMPercent() {
         Runtime rt = Runtime.getRuntime();
         long max = rt.maxMemory();
