@@ -91,4 +91,12 @@ public class AdminBar extends JavaPlugin {
         int mib = (int)(used / (1024*1024)); // doubt we have to worry about overflows here... 2^31-1 MiB is ~2.2 TiB!
         return mib;
     }
+
+    public static int getRAMPercent() {
+        Runtime rt = Runtime.getRuntime();
+        long max = rt.maxMemory();
+        long free = rt.freeMemory();
+        int percent = (int)(free*100/max); // Can't end up with anything more than 100 and less than 0
+        return 100-percent; // Get USED RAM instead of remaining RAM
+    }
 }

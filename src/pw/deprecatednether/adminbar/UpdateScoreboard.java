@@ -35,6 +35,7 @@ public class UpdateScoreboard extends BukkitRunnable {
         Score players = adminbar.getScore(Bukkit.getServer().getOfflinePlayer(ChatColor.GREEN + "Online Players"));
         Score staff = adminbar.getScore(Bukkit.getServer().getOfflinePlayer(ChatColor.GREEN + "Online Staff"));
         Score ram = adminbar.getScore(Bukkit.getServer().getOfflinePlayer(ChatColor.GREEN + "Used RAM (in MiB)"));
+        Score ramPercent = adminbar.getScore(Bukkit.getServer().getOfflinePlayer(ChatColor.GREEN + "Used RAM (%)"));
         if (lastrun != -1) {
             tps.setScore(AdminBar.getTPS(lastrun));
         }
@@ -42,5 +43,6 @@ public class UpdateScoreboard extends BukkitRunnable {
         players.setScore(AdminBar.getOnline());
         staff.setScore(AdminBar.getOnlineStaff());
         ram.setScore(AdminBar.getUsedRAM());
+        ramPercent.setScore(AdminBar.getRAMPercent());
     }
 }
